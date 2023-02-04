@@ -1,0 +1,17 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base",
+    ":preserveSemverRanges",
+    ":disableDependencyDashboard"
+  ],
+  "automergeType": "pr",
+  "automerge": false,
+  "additionalReviewers": ["marekvospel"],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin"],
+      "automerge": true
+    }
+  ]
+}
