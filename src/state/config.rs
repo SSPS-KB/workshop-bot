@@ -1,15 +1,5 @@
-use crate::state::BotState;
-use serenity::client::Context;
 use shuttle_secrets::SecretStore;
 use std::str::FromStr;
-
-pub(crate) async fn get_state(ctx: &Context) -> BotState {
-    *ctx.data
-        .read()
-        .await
-        .get::<BotState>()
-        .expect("Could not get BotState")
-}
 
 fn parse_option<T: FromStr>(store: &SecretStore, key: &str) -> Option<T> {
     match store.get(key) {

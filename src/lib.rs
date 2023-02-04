@@ -1,14 +1,20 @@
-use crate::state::config::{get_state, BotConfig};
+use crate::commands::register_commands;
+use crate::modules::automove::run_automove;
+use crate::modules::invite::generate_invite;
+use crate::state::config::BotConfig;
 use crate::state::BotState;
 use anyhow::anyhow;
 use serenity::async_trait;
+use serenity::model::application::interaction::Interaction;
 use serenity::model::gateway::Ready;
-use serenity::model::invite::Invite;
 use serenity::model::voice::VoiceState;
 use serenity::prelude::*;
 use shuttle_secrets::SecretStore;
-use tracing::{error, info};
+use std::sync::Arc;
+use tracing::{info, warn};
 
+mod commands;
+mod modules;
 mod state;
 
 struct Bot;
@@ -18,39 +24,22 @@ impl EventHandler for Bot {
     async fn ready(&self, ctx: Context, ready: Ready) {
         info!("{} is connected!", ready.user.name);
 
-        // Create an invite
-        let invite_channel = get_state(&ctx).await.config.invite_channel;
-
-        if let Some(invite_channel) = invite_channel {
-            match Invite::create(&ctx.http, invite_channel, |mut create| {
-                create.max_age(0);
-                create
-            })
-            .await
-            {
-                Ok(invite) => info!("Created invite {}", invite.url()),
-                Err(e) => error!("Could not create invite: {:?}", e),
-            }
-        }
+        register_commands(&ctx).await;
+        generate_invite(&ctx).await;
     }
 
     async fn voice_state_update(&self, ctx: Context, state: VoiceState) {
-        let automove_from = get_state(&ctx).await.config.automove_from;
-        let automove_to = get_state(&ctx).await.config.automove_to;
-        if automove_from.is_none() || automove_to.is_none() {
-            return;
-        }
-        let automove_to = automove_to.unwrap();
-        let automove_from = automove_from.unwrap();
+        run_automove(&ctx, state).await;
+    }
 
-        if state.channel_id != Some(automove_from.into()) {
-            return;
-        }
-
-        if let Some(member) = state.member {
-            match member.move_to_voice_channel(&ctx.http, automove_to).await {
-                Ok(_) => info!("Moved {} into #workshopy.", member.user.name),
-                Err(e) => error!("{}", e),
+    async fn interaction_create(&self, ctx: Context, interaction: Interaction) {
+        if let Interaction::ApplicationCommand(command) = interaction {
+            match command.data.name.as_str() {
+                "workshop" => commands::workshop::run(&ctx, &command).await,
+                _ => warn!(
+                    "Recieved a command which is not implemented: {}",
+                    command.data.name
+                ),
             }
         }
     }
@@ -79,6 +68,7 @@ async fn serenity(
 
     let state = BotState {
         config: BotConfig::from(&secret_store),
+        workshop: Arc::new(RwLock::new(false)),
     };
 
     {

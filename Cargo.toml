@@ -10,5 +10,6 @@ publish = false
 shuttle-service = { version = "0.9.0", features = ["bot-serenity"] }
 anyhow = "1.0.68"
 serenity = { version = "0.11.5", default-features = false, features = ["client", "gateway", "rustls_backend", "model"] }
+serde_json = "1.0.91"
 shuttle-secrets = "0.9.0"
 tracing = "0.1.37"

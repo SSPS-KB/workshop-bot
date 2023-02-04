@@ -1,11 +1,22 @@
 pub(crate) mod config;
 
 use crate::state::config::BotConfig;
-use serenity::prelude::TypeMapKey;
+use serenity::prelude::{Context, RwLock, TypeMapKey};
+use std::sync::Arc;
 
-#[derive(Debug, Ord, PartialOrd, Eq, PartialEq, Copy, Clone, Hash, Default)]
+pub(crate) async fn get_state(ctx: &Context) -> BotState {
+    ctx.data
+        .read()
+        .await
+        .get::<BotState>()
+        .expect("Could not get BotState")
+        .clone()
+}
+
+#[derive(Debug, Clone, Default)]
 pub(crate) struct BotState {
     pub(crate) config: BotConfig,
+    pub(crate) workshop: Arc<RwLock<bool>>,
 }
 
 impl TypeMapKey for BotState {
