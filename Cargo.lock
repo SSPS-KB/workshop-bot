@@ -1417,6 +1417,7 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "i18n",
+ "reqwest",
  "serde",
  "serde_json",
  "serenity",

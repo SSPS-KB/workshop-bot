@@ -10,6 +10,12 @@
           "description": "Zda workshop má být zapnut po spuštění příkazu"
         }
       }
+    },
+    "kiss": {
+      "description": "Pošli gif polibku"
+    },
+    "hug": {
+      "description": "Pošli gif obejmutí"
     }
   }
 }

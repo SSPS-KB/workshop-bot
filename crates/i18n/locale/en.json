@@ -10,6 +10,12 @@
           "description": "Whether the workshop should be on after executed"
         }
       }
+    },
+    "kiss": {
+      "description": "Send a kiss gif"
+    },
+    "hug": {
+      "description": "Send a hug gif"
     }
   }
 }

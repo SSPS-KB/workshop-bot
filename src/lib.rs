@@ -34,6 +34,8 @@ impl EventHandler for Bot {
         if let Interaction::ApplicationCommand(command) = interaction {
             match command.data.name.as_str() {
                 "workshop" => commands::workshop::run(&ctx, &command).await,
+                "kiss" => commands::otakugif::run(&ctx, &command, "kiss").await,
+                "hug" => commands::otakugif::run(&ctx, &command, "hug").await,
                 _ => warn!(
                     "Received a command which is not implemented: {}",
                     command.data.name
