@@ -3,21 +3,19 @@ use crate::modules::automove::run_automove;
 use crate::modules::invite::generate_invite;
 use crate::state::config::BotConfig;
 use crate::state::BotState;
-use anyhow::anyhow;
 use serenity::async_trait;
 use serenity::model::application::interaction::Interaction;
 use serenity::model::gateway::Ready;
 use serenity::model::voice::VoiceState;
 use serenity::prelude::*;
-use shuttle_secrets::SecretStore;
 use std::sync::Arc;
 use tracing::{info, warn};
 
-mod commands;
-mod modules;
-mod state;
+pub(crate) mod commands;
+pub(crate) mod modules;
+pub mod state;
 
-struct Bot;
+pub(crate) struct Bot;
 
 #[async_trait]
 impl EventHandler for Bot {
@@ -37,7 +35,7 @@ impl EventHandler for Bot {
             match command.data.name.as_str() {
                 "workshop" => commands::workshop::run(&ctx, &command).await,
                 _ => warn!(
-                    "Recieved a command which is not implemented: {}",
+                    "Received a command which is not implemented: {}",
                     command.data.name
                 ),
             }
@@ -45,17 +43,7 @@ impl EventHandler for Bot {
     }
 }
 
-#[shuttle_service::main]
-async fn serenity(
-    #[shuttle_secrets::Secrets] secret_store: SecretStore,
-) -> shuttle_service::ShuttleSerenity {
-    // Get the discord token set in `Secrets.toml`
-    let token = if let Some(token) = secret_store.get("DISCORD_TOKEN") {
-        token
-    } else {
-        return Err(anyhow!("'DISCORD_TOKEN' was not found").into());
-    };
-
+pub async fn create(token: String, settings: BotConfig) -> anyhow::Result<Client> {
     // Set gateway intents, which decides what events the bot will be notified about
     let intents = GatewayIntents::GUILD_MESSAGES
         | GatewayIntents::MESSAGE_CONTENT
@@ -67,7 +55,7 @@ async fn serenity(
         .expect("Err creating client");
 
     let state = BotState {
-        config: BotConfig::from(&secret_store),
+        config: settings,
         workshop: Arc::new(RwLock::new(false)),
     };
 

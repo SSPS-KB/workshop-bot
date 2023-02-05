@@ -2,10 +2,7 @@
 This repository contains the source code of SSPŠ KB discord bot.
 
 ## Deploying
-You can easily deploy this bot on [shuttle.rs](https://www.shuttle.rs/).
-```shell
-cargo shuttle deploy
-```
+SOON<sup>TM</sup>
 
 ## License
 <sup>

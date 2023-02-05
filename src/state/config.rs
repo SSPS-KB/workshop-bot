@@ -1,33 +1,21 @@
-use shuttle_secrets::SecretStore;
-use std::str::FromStr;
+use serde::{Deserialize, Serialize};
 
-fn parse_option<T: FromStr>(store: &SecretStore, key: &str) -> Option<T> {
-    match store.get(key) {
-        Some(v) => match v.parse::<T>() {
-            Ok(val) => Some(val),
-            _ => None,
-        },
-        None => None,
-    }
+#[derive(Debug, Ord, PartialOrd, Eq, PartialEq, Clone, Hash, Default, Serialize, Deserialize)]
+pub struct BotConfig {
+    #[serde(alias = "discord_token")]
+    pub token: Option<String>,
+    #[serde(rename = "workshop_invite_channel")]
+    pub invite_channel: Option<u64>,
+    #[serde(rename = "workshop_automove_from")]
+    pub automove_from: Option<u64>,
+    #[serde(rename = "workshop_automove_to")]
+    pub automove_to: Option<u64>,
 }
 
-#[derive(Debug, Ord, PartialOrd, Eq, PartialEq, Copy, Clone, Hash, Default)]
-pub(crate) struct BotConfig {
-    pub(crate) invite_channel: Option<u64>,
-    pub(crate) automove_from: Option<u64>,
-    pub(crate) automove_to: Option<u64>,
-}
+impl BotConfig {
+    pub fn runtime_strip(&mut self) -> &mut Self {
+        self.token = None;
 
-impl From<&SecretStore> for BotConfig {
-    fn from(value: &SecretStore) -> Self {
-        let invite_channel: Option<u64> = parse_option(value, "WORKSHOP_INVITE_CHANNEL");
-        let automove_from: Option<u64> = parse_option(value, "WORKSHOP_AUTOMOVE_FROM");
-        let automove_to: Option<u64> = parse_option(value, "WORKSHOP_AUTOMOVE_TO");
-
-        BotConfig {
-            invite_channel,
-            automove_from,
-            automove_to,
-        }
+        self
     }
 }

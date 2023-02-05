@@ -1,4 +1,4 @@
-pub(crate) mod config;
+pub mod config;
 
 use crate::state::config::BotConfig;
 use serenity::prelude::{Context, RwLock, TypeMapKey};
