@@ -6,15 +6,13 @@
       "path": ".",
       "manager": "rust",
       "version": true,
-      "getPublishedVersion": "git log bot-v${ pkgFile.version } -1 --pretty=%Cgreen${ pkgFile.version } || echo \"not published yet\"",
-      "publish": "git tag bot-v${ pkgFile.version }"
+      "getPublishedVersion": "git log workshop-bot-v${ pkgFile.version } -1 --pretty=%Cgreen${ pkgFile.version } || echo \"not published yet\""
     },
     "i18n": {
       "path": "./crates/i18n",
       "manager": "rust",
       "version": true,
-      "getPublishedVersion": "git log i18n-v${ pkgFile.version } -1 --pretty=%Cgreen${ pkgFile.version } || echo \"not published yet\"",
-      "publish": "git tag i18n-v${ pkgFile.version }"
+      "getPublishedVersion": "git log i18n-v${ pkgFile.version } -1 --pretty=%Cgreen${ pkgFile.version } || echo \"not published yet\""
     }
   }
 }
