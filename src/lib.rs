@@ -1,6 +1,7 @@
 use crate::commands::register_commands;
 use crate::modules::automove::run_automove;
 use crate::modules::invite::generate_invite;
+use crate::modules::status::set_status;
 use crate::state::config::BotConfig;
 use crate::state::BotState;
 use serenity::async_trait;
@@ -22,6 +23,7 @@ impl EventHandler for Bot {
     async fn ready(&self, ctx: Context, ready: Ready) {
         info!("{} is connected!", ready.user.name);
 
+        set_status(&ctx).await;
         register_commands(&ctx).await;
         generate_invite(&ctx).await;
     }
