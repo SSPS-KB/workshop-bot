@@ -1,11 +1,11 @@
 ## Required ##
 
 # A discord token for the bot to login
-DISCORD_TOKEN = 'Your token'
+discord_token = 'Your token'
 
 ## Optional ##
 # Where the invite should be created (run when app gets created and is logged with the INFO level)
-WORKSHOP_INVITE_CHANNEL = "123"
+workshop_invite_channel = "123"
 # FROM where TO where should users be automatically moved
-WORKSHOP_AUTOMOVE_FROM = "456"
-WORKSHOP_AUTOMOVE_TO = "789"
+workshop_automove_from = "456"
+workshop_automove_to = "789"
