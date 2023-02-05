@@ -1,0 +1,15 @@
+{
+  "commands": {
+    "workshop": {
+      "description": "Start/Stop a workshop (automove)",
+      "started": "Workshop was started",
+      "stopped": "Workshop was stopped",
+      "options": {
+        "on": {
+          "name": "on",
+          "description": "Whether the workshop should be on after executed"
+        }
+      }
+    }
+  }
+}

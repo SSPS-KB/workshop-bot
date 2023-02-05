@@ -1,0 +1,15 @@
+{
+  "commands": {
+    "workshop": {
+      "description": "Zapni/Vypni workshop (automatické přesouvání uživatelů)",
+      "started": "Workshop byl spuštěn",
+      "stopped": "Workshop byl zastaven",
+      "options": {
+        "on": {
+          "name": "on",
+          "description": "Zda workshop má být zapnut po spuštění příkazu"
+        }
+      }
+    }
+  }
+}

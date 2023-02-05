@@ -1,4 +1,5 @@
 use crate::state::get_state;
+use i18n::t;
 use serenity::builder::CreateApplicationCommand;
 use serenity::model::prelude::command::CommandOptionType;
 use serenity::model::prelude::interaction::application_command::ApplicationCommandInteraction;
@@ -10,17 +11,14 @@ use tracing::error;
 pub(crate) fn register(command: &mut CreateApplicationCommand) -> &mut CreateApplicationCommand {
     command
         .name("workshop")
-        .description("Start/Stop a workshop (automove)")
-        .description_localized(
-            "cs",
-            "Zapni/Vypni workshop (automatické přesouvání uživatelů)",
-        )
+        .description(t!("commands.workshop.description"))
+        .description_localized("cs", t!("commands.workshop.description", "cs"))
         .create_option(|option| {
             option
-                .name("on")
-                .description("Whether the workshop should be on after executed")
-                .name_localized("cs", "zapnut")
-                .description_localized("cs", "Zda workshop má být zapnut po spuštění příkazu")
+                .name(t!("commands.workshop.options.on.name"))
+                .description(t!("commands.workshop.options.on.description"))
+                .name_localized("cs", t!("commands.workshop.options.on.name", "cs"))
+                .description_localized("cs", t!("commands.workshop.options.on.description", "cs"))
                 .kind(CommandOptionType::Boolean)
                 .required(true)
         })
@@ -31,12 +29,12 @@ pub(crate) fn register(command: &mut CreateApplicationCommand) -> &mut CreateApp
 fn get_message(locale: &str, on: bool) -> &'static str {
     match locale {
         "cs" => match on {
-            true => "Workshop byl spuštěn!",
-            false => "Workshop byl zastaven!",
+            true => t!("commands.workshop.started", "cs"),
+            false => t!("commands.workshop.stopped", "cs"),
         },
         _ => match on {
-            true => "Workshop was started!",
-            false => "Workshop was stopped!",
+            true => t!("commands.workshop.started"),
+            false => t!("commands.workshop.stopped"),
         },
     }
 }
