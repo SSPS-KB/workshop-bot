@@ -21,6 +21,6 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build the Docker images
-        run: DOCKER_BUILDKIT=1 docker build -t ghcr.io/ssps-kb/workshop-bot:latest
+        run: DOCKER_BUILDKIT=1 docker build . -t ghcr.io/ssps-kb/workshop-bot:latest
       - name: Deploy the Docker images
         run: DOCKER_BUILDKIT=1 docker push ghcr.io/ssps-kb/workshop-bot:latest
