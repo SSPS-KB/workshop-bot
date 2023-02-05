@@ -8,6 +8,9 @@ on:
 jobs:
   changelog:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
 
     steps:
       - uses: actions/checkout@v3
@@ -28,9 +31,6 @@ jobs:
         id: cpr
         uses: peter-evans/create-pull-request@v3
         if: steps.covector.outputs.commandRan == 'version'
-        permissions:
-          contents: write
-          pull-requests: write
         with:
           title: "Publish New Versions"
           commit-message: "publish new versions"
