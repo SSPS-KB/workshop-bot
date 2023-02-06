@@ -7,11 +7,7 @@ use std::fs::read_to_string;
 use std::path::PathBuf;
 
 fn get_locale(locale: &str) -> Result<Value, anyhow::Error> {
-    let dir = match env::var("CARGO_WORKSPACE_ROOT") {
-        Ok(e) => e,
-        Err(_) => env!("CARGO_MANIFEST_DIR").to_string(),
-    };
-    let mut path = PathBuf::from(dir);
+    let mut path = PathBuf::from(env::var("CARGO_MANIFEST_DIR")?);
     path.push("locale");
     path.push(format!("{locale}.json"));
 
