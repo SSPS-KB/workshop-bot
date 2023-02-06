@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 use crate::commands::register_commands;
 use crate::modules::automove::run_automove;
 use crate::modules::invite::generate_invite;
@@ -58,7 +59,7 @@ pub async fn create(token: String, settings: BotConfig) -> anyhow::Result<Client
 
     let state = BotState {
         config: settings,
-        workshop: Arc::new(RwLock::new(false)),
+        workshop: Arc::new(RwLock::new(HashMap::new())),
     };
 
     {

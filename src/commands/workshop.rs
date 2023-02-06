@@ -1,6 +1,7 @@
 use crate::state::get_state;
 use i18n::t;
 use serenity::builder::CreateApplicationCommand;
+use serenity::model::id::GuildId;
 use serenity::model::prelude::command::CommandOptionType;
 use serenity::model::prelude::interaction::application_command::ApplicationCommandInteraction;
 use serenity::model::prelude::interaction::InteractionResponseType;
@@ -40,6 +41,11 @@ fn get_message(locale: &str, on: bool) -> &'static str {
 }
 
 pub(crate) async fn run(ctx: &Context, command: &ApplicationCommandInteraction) {
+    let guild_id = match command.guild_id {
+        None => return,
+        Some(id) => id
+    };
+
     let on = match command.data.options.get(0) {
         Some(options) => match options.value {
             Some(serde_json::Value::Bool(b)) => b,
@@ -53,7 +59,7 @@ pub(crate) async fn run(ctx: &Context, command: &ApplicationCommandInteraction) 
     {
         let mut lock = workshop.workshop.write().await;
 
-        *lock = on;
+        lock.insert(guild_id.to_string(), on);
     }
 
     if let Err(e) = command
