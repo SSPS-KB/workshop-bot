@@ -2,11 +2,16 @@ extern crate proc_macro;
 use proc_macro::{TokenStream, TokenTree};
 use quote::quote;
 use serde_json::Value;
+use std::env;
 use std::fs::read_to_string;
 use std::path::PathBuf;
 
 fn get_locale(locale: &str) -> Result<Value, anyhow::Error> {
-    let mut path = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
+    let dir = match env::var("CARGO_WORKSPACE_ROOT") {
+        Ok(e) => e,
+        Err(_) => env!("CARGO_MANIFEST_DIR").to_string(),
+    };
+    let mut path = PathBuf::from(dir);
     path.push("locale");
     path.push(format!("{locale}.json"));
 
