@@ -49,9 +49,7 @@ impl EventHandler for Bot {
 
 pub async fn create(token: String, settings: BotConfig) -> anyhow::Result<Client> {
     // Set gateway intents, which decides what events the bot will be notified about
-    let intents = GatewayIntents::GUILD_MESSAGES
-        | GatewayIntents::MESSAGE_CONTENT
-        | GatewayIntents::GUILD_VOICE_STATES;
+    let intents = GatewayIntents::GUILD_VOICE_STATES;
 
     let client = Client::builder(&token, intents)
         .event_handler(Bot)
