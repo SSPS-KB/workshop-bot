@@ -42,7 +42,7 @@ jobs:
           tags: |
             type=ref,value=latest,event=tag
             type=edge,value=edge
-            type=semver,pattern=workshop-bot-v{{version}},value={{version}}
+            type=semver,pattern={{version}}
             type=ref,event=branch
             type=ref,event=pr
             type=sha
