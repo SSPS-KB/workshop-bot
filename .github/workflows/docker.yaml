@@ -46,6 +46,8 @@ jobs:
             type=ref,event=branch
             type=ref,event=pr
             type=sha
+          labels:
+            org.opencontainers.image.licenses=(Apache-2.0 OR MIT)
 
       - name: Build and push
         uses: docker/build-push-action@v4
