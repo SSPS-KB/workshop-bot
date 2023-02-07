@@ -42,8 +42,7 @@ jobs:
           tags: |
             type=ref,value=latest,event=tag
             type=edge,value=edge
-            type=semver,pattern={{version}}
-            type=ref,event=branch
+            type=match,pattern=workshop-bot-v(.*),group=1
             type=ref,event=pr
             type=sha
           labels:
