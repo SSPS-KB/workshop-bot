@@ -45,18 +45,6 @@ pub(crate) async fn run(ctx: &Context, command: &ApplicationCommandInteraction, 
         Ok(url) => url,
         Err(e) => {
             error!("Could not get {reaction} link: {e}");
-            if let Err(e) = command
-                .create_interaction_response(&ctx.http, |response| {
-                    response
-                        .kind(InteractionResponseType::ChannelMessageWithSource)
-                        .interaction_response_data(|message| {
-                            message.content("Could not send {reaction} :(")
-                        })
-                })
-                .await
-            {
-                error!("There was an error while running {reaction} command: {e}")
-            };
             return;
         }
     };
@@ -73,6 +61,9 @@ pub(crate) async fn run(ctx: &Context, command: &ApplicationCommandInteraction, 
         })
         .await
     {
-        error!("There was an error while running {reaction} command: {}", e)
+        error!(
+            "There was an error while responding to {reaction} command: {}",
+            e
+        )
     };
 }
