@@ -12,16 +12,25 @@
       }
     },
     "kiss": {
-      "description": "Pošli gif polibku"
+      "description": "Polib někoho posláním gifu"
     },
     "hug": {
-      "description": "Pošli gif obejmutí"
+      "description": "Obejmi někoho posláním gifu"
+    },
+    "slap": {
+      "description": "Dej někomu facku posláním gifu"
+    },
+    "punch": {
+      "description": "Prašti někoho posláním gifu"
+    },
+    "tickle": {
+      "description": "Pošimrej někoho posláním gifu"
     }
   },
   "modules": {
     "reaction_roles": {
-      "added": "Role added!",
-      "removed": "Role removed!"
+      "added": "Role přidána!",
+      "removed": "Role odebrána!"
     }
   }
 }

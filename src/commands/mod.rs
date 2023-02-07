@@ -46,6 +46,20 @@ pub(crate) async fn register_commands(ctx: &Context) {
         .await,
     );
 
+    results.push(
+        Command::create_global_application_command(&ctx.http, |command| {
+            otakugif::register_slap(command)
+        })
+        .await,
+    );
+
+    results.push(
+        Command::create_global_application_command(&ctx.http, |command| {
+            otakugif::register_punch(command)
+        })
+        .await,
+    );
+
     match results
         .into_iter()
         .collect::<Result<Vec<Command>, serenity::Error>>()

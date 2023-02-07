@@ -16,6 +16,15 @@
     },
     "hug": {
       "description": "Send a hug gif"
+    },
+    "slap": {
+      "description": "Send a slap gif"
+    },
+    "punch": {
+      "description": "Send a punch gif"
+    },
+    "tickle": {
+      "description": "Send a tickle gif"
     }
   },
   "modules": {

@@ -27,6 +27,26 @@ pub(crate) fn register_hug(
         .dm_permission(true)
 }
 
+pub(crate) fn register_slap(
+    command: &mut CreateApplicationCommand,
+) -> &mut CreateApplicationCommand {
+    command
+        .name("slap")
+        .description(t!("commands.slap.description").to_string())
+        .description_localized("cs", t!("commands.slap.description", "cs"))
+        .dm_permission(true)
+}
+
+pub(crate) fn register_punch(
+    command: &mut CreateApplicationCommand,
+) -> &mut CreateApplicationCommand {
+    command
+        .name("punch")
+        .description(t!("commands.punch.description").to_string())
+        .description_localized("cs", t!("commands.punch.description", "cs"))
+        .dm_permission(true)
+}
+
 #[derive(Deserialize)]
 struct KissResponse {
     url: String,
