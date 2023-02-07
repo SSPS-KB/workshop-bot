@@ -39,8 +39,9 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           flavor: |
             latest=false
-          tags:
+          tags: |
             type=ref,value=latest,event=tag
+            type=edge,value=edge
             type=semver,pattern=workshop-bot-v{{version}},value={{version}}
             type=ref,event=branch
             type=ref,event=pr
