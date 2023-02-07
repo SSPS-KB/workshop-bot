@@ -1,4 +1,3 @@
-use std::collections::HashMap;
 use crate::commands::register_commands;
 use crate::modules::automove::run_automove;
 use crate::modules::invite::generate_invite;
@@ -10,6 +9,7 @@ use serenity::model::application::interaction::Interaction;
 use serenity::model::gateway::Ready;
 use serenity::model::voice::VoiceState;
 use serenity::prelude::*;
+use std::collections::HashMap;
 use std::sync::Arc;
 use tracing::{info, warn};
 
@@ -34,16 +34,23 @@ impl EventHandler for Bot {
     }
 
     async fn interaction_create(&self, ctx: Context, interaction: Interaction) {
-        if let Interaction::ApplicationCommand(command) = interaction {
-            match command.data.name.as_str() {
+        match interaction {
+            Interaction::ApplicationCommand(command) => match command.data.name.as_str() {
                 "workshop" => commands::workshop::run(&ctx, &command).await,
                 "kiss" => commands::otakugif::run(&ctx, &command, "kiss").await,
                 "hug" => commands::otakugif::run(&ctx, &command, "hug").await,
-                _ => warn!(
-                    "Received a command which is not implemented: {}",
-                    command.data.name
+                name => warn!("Received a command which is not implemented: {}", name),
+            },
+            Interaction::MessageComponent(component) => match component.data.custom_id.as_str() {
+                id if id.starts_with("reaction_role_") => {
+                    commands::reaction_role::run(&ctx, component).await;
+                }
+                id => warn!(
+                    "Received a message component with id which is not implemented {}",
+                    id
                 ),
-            }
+            },
+            _ => {}
         }
     }
 }

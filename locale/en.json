@@ -17,5 +17,11 @@
     "hug": {
       "description": "Send a hug gif"
     }
+  },
+  "modules": {
+    "reaction_roles": {
+      "added": "Role added!",
+      "removed": "Role removed!"
+    }
   }
 }

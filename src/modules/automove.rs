@@ -1,4 +1,3 @@
-use std::collections::HashMap;
 use crate::state::get_state;
 use serenity::client::Context;
 use serenity::model::voice::VoiceState;
@@ -13,7 +12,7 @@ pub(crate) async fn run_automove(ctx: &Context, state: VoiceState) {
     let bot_state = get_state(ctx).await;
     let guild_config = bot_state.config.guilds.get(&guild_id.to_string());
     if guild_config.is_none() {
-        return
+        return;
     }
 
     let guild_config = guild_config.unwrap();
@@ -23,13 +22,11 @@ pub(crate) async fn run_automove(ctx: &Context, state: VoiceState) {
     let workshop = {
         let lock = bot_state.workshop.read().await;
         let guild_id = guild_id.to_string();
-        match lock.get(&guild_id) {
-            None => None,
-            Some(v) => Some(v.to_owned()),
-        }
+        lock.get(&guild_id).map(|v| v.to_owned())
     };
 
-    if automove_from.is_none() || automove_to.is_none() || workshop.is_none() || !workshop.unwrap() {
+    if automove_from.is_none() || automove_to.is_none() || workshop.is_none() || !workshop.unwrap()
+    {
         return;
     }
     let automove_to = automove_to.unwrap();

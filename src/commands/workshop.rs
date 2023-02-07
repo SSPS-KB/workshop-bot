@@ -1,7 +1,6 @@
 use crate::state::get_state;
 use i18n::t;
 use serenity::builder::CreateApplicationCommand;
-use serenity::model::id::GuildId;
 use serenity::model::prelude::command::CommandOptionType;
 use serenity::model::prelude::interaction::application_command::ApplicationCommandInteraction;
 use serenity::model::prelude::interaction::InteractionResponseType;
@@ -43,7 +42,7 @@ fn get_message(locale: &str, on: bool) -> &'static str {
 pub(crate) async fn run(ctx: &Context, command: &ApplicationCommandInteraction) {
     let guild_id = match command.guild_id {
         None => return,
-        Some(id) => id
+        Some(id) => id,
     };
 
     let on = match command.data.options.get(0) {
@@ -67,7 +66,9 @@ pub(crate) async fn run(ctx: &Context, command: &ApplicationCommandInteraction) 
             response
                 .kind(InteractionResponseType::ChannelMessageWithSource)
                 .interaction_response_data(|message| {
-                    message.content(get_message(command.locale.as_str(), on))
+                    message
+                        .content(get_message(command.locale.as_str(), on))
+                        .ephemeral(true)
                 })
         })
         .await

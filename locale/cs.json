@@ -17,5 +17,11 @@
     "hug": {
       "description": "Pošli gif obejmutí"
     }
+  },
+  "modules": {
+    "reaction_roles": {
+      "added": "Role added!",
+      "removed": "Role removed!"
+    }
   }
 }

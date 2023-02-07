@@ -4,6 +4,7 @@ use serenity::model::prelude::GuildId;
 use tracing::{error, info};
 
 pub(crate) mod otakugif;
+pub(crate) mod reaction_role;
 pub(crate) mod workshop;
 
 pub(crate) async fn register_commands(ctx: &Context) {

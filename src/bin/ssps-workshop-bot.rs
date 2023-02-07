@@ -13,8 +13,6 @@ pub async fn main() -> anyhow::Result<()> {
     let config = read_to_string("Config.toml")?;
     let config: BotConfig = toml::from_str(&config)?;
 
-    println!("{:?}", config);
-
     let token = match config.token.clone() {
         Some(c) => c,
         None => return Err(anyhow!("Missing \"discord_token\"")),
