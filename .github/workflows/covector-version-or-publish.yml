@@ -24,7 +24,7 @@ jobs:
         uses: jbolda/covector/packages/action@covector-v0.8
         id: covector
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.CREATE_RELEASE_PAT }}
           command: 'version-or-publish'
           createRelease: true
       - name: Create Pull Request With Versions Bumped
