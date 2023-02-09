@@ -1,20 +1,20 @@
 {
   "gitSiteUrl": "https://github.com/SSPS-KB/workshop-bot/",
-  "pkgManagers": {},
+  "pkgManagers": {
+    "rust": {
+      "version": true,
+      "getPublishedVersion": "git log ${ pkg.pkg }-v${ pkgFile.version } -1 --pretty=%Cgreen${ pkgFile.version } 2> /dev/null || echo \"not published yet\"",
+      "publish": "echo Publishing..."
+    }
+  },
   "packages": {
     "workshop-bot": {
       "path": ".",
-      "manager": "rust",
-      "version": true,
-      "getPublishedVersion": "git log workshop-bot-v${ pkgFile.version } -1 --pretty=%Cgreen${ pkgFile.version } || echo \"not published yet\"",
-      "publish": "echo publishing..."
+      "manager": "rust"
     },
     "i18n": {
       "path": "./crates/i18n",
-      "manager": "rust",
-      "version": true,
-      "getPublishedVersion": "git log i18n-v${ pkgFile.version } -1 --pretty=%Cgreen${ pkgFile.version } || echo \"not published yet\"",
-      "publish": "echo publishing..."
+      "manager": "rust"
     }
   }
 }
