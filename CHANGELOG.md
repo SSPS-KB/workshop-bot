@@ -1,5 +1,10 @@
 # Changelog
 
+## \[0.2.1]
+
+- Added /slap and /punch otakugif commands.
+  - [21d5d3a](https://github.com/SSPS-KB/workshop-bot/commit/21d5d3abf76ed0730f2671f529c02d1bc0faa581) feat: add slap and punch commands on 2023-02-07
+
 ## \[0.2.0]
 
 - Added reaction roles interaction handler.
