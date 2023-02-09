@@ -2,7 +2,7 @@ lib = { }
 
 [package]
 name = "workshop-bot"
-version = "0.3.1"
+version = "0.3.2"
 edition = "2021"
 publish = false
 
