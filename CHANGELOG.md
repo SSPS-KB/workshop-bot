@@ -1,5 +1,10 @@
 # Changelog
 
+## \[0.3.0]
+
+- Added logic to also check `/etc/workshop-bot` for configuration
+  - [586e83b](https://github.com/SSPS-KB/workshop-bot/commit/586e83b87dbbff34da5b90852ab32935dd47e527) feat: add config checking on 2023-02-09
+
 ## \[0.2.1]
 
 - Added /slap and /punch otakugif commands.
