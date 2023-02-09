@@ -7,14 +7,14 @@
       "manager": "rust",
       "version": true,
       "getPublishedVersion": "git log workshop-bot-v${ pkgFile.version } -1 --pretty=%Cgreen${ pkgFile.version } || echo \"not published yet\"",
-      "publish": "echo publishing"
+      "publish": "echo publishing..."
     },
     "i18n": {
       "path": "./crates/i18n",
       "manager": "rust",
       "version": true,
-      "getPublishedVersion": "git log i18n-v${ pkgFile.version } -1 --pretty=%Cgreen${ pkgFile.version } || echo \"not published yet\""
-      "publish": "echo publishing"
+      "getPublishedVersion": "git log i18n-v${ pkgFile.version } -1 --pretty=%Cgreen${ pkgFile.version } || echo \"not published yet\"",
+      "publish": "echo publishing..."
     }
   }
 }
