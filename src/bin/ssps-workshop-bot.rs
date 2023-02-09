@@ -11,7 +11,7 @@ pub async fn main() -> anyhow::Result<()> {
 
     // Load config
     let config = read_to_string("Config.toml")?;
-    let config: BotConfig = toml::from_str(&config)?;
+    let config: BotConfig = basic_toml::from_str(&config)?;
 
     let token = match config.token.clone() {
         Some(c) => c,

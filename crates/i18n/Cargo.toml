@@ -11,3 +11,4 @@ proc-macro = true
 serde_json = "1.0.92"
 anyhow = "1.0.69"
 quote = "1.0.23"
+proc-macro2 = "1.0"
