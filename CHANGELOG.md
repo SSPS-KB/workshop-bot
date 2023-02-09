@@ -1,5 +1,10 @@
 # Changelog
 
+## \[0.3.1]
+
+- Fixed deploy CI
+  - [7db5400](https://github.com/SSPS-KB/workshop-bot/commit/7db54002bbd50dedbe7c8cc5b14021dc6f30b2b3) ci: fx deploy ci on 2023-02-09
+
 ## \[0.3.0]
 
 - Added logic to also check `/etc/workshop-bot` for configuration
