@@ -1,5 +1,12 @@
 # Changelog
 
+## \[0.3.2]
+
+- Fixed deploy CI
+  - [7db5400](https://github.com/SSPS-KB/workshop-bot/commit/7db54002bbd50dedbe7c8cc5b14021dc6f30b2b3) ci: fx deploy ci on 2023-02-09
+  - [7bd2cad](https://github.com/SSPS-KB/workshop-bot/commit/7bd2cadaab1e3c62cdbf21ece767bf8e0e52d940) publish new versions ([#8](https://github.com/SSPS-KB/workshop-bot/pull/8)) on 2023-02-09
+  - [7afb478](https://github.com/SSPS-KB/workshop-bot/commit/7afb4787249fbba9e731a9db9005b9d009fb517c) chore: rename change on 2023-02-09
+
 ## \[0.3.1]
 
 - Fixed deploy CI
