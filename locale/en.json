@@ -25,6 +25,10 @@
     },
     "tickle": {
       "description": "Send a tickle gif"
+    },
+    "chad": {
+      "description": "Sends a chad gif",
+      "message": "You truly are a chad"
     }
   },
   "modules": {

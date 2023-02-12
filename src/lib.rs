@@ -41,6 +41,7 @@ impl EventHandler for Bot {
                 "hug" => commands::otakugif::run(&ctx, &command, "hug").await,
                 "punch" => commands::otakugif::run(&ctx, &command, "punch").await,
                 "slap" => commands::otakugif::run(&ctx, &command, "slap").await,
+                "chad" => commands::chad::run(&ctx, &command).await,
                 name => warn!("Received a command which is not implemented: {}", name),
             },
             Interaction::MessageComponent(component) => match component.data.custom_id.as_str() {
