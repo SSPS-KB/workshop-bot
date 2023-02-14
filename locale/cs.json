@@ -23,9 +23,6 @@
     "punch": {
       "description": "Prašti někoho posláním gifu"
     },
-    "tickle": {
-      "description": "Pošimrej někoho posláním gifu"
-    },
     "chad": {
       "description": "Pošle chad gif",
       "message": "Ty jsi ale chad"
