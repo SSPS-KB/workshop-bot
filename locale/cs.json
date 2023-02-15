@@ -26,6 +26,10 @@
     "chad": {
       "description": "Pošle chad gif",
       "message": "Ty jsi ale chad"
+    },
+    "skull": {
+      "description": "Pošle skull gif",
+      "message": ":skull:"
     }
   },
   "modules": {
