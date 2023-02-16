@@ -67,21 +67,4 @@ pub(crate) async fn run(ctx: &Context, command: &ApplicationCommandInteraction) 
         }
     }
 
-    // Respond with an error message if there was a problem fetching the gif
-    if let Err(e) = command
-        .create_interaction_response(&ctx.http, |response| {
-            response
-                .kind(InteractionResponseType::ChannelMessageWithSource)
-                .interaction_response_data(|message| {
-                    message
-                        .content(get_message(locale))
-                        .embed(|embed| embed
-                            .description("Sorry, I couldn't find a kitty review gif at the moment :(")
-                            .color(Color::from_rgb(110, 110, 110)))
-                })
-        })
-        .await
-    {
-        error!("There was an error while responding to kitty-review command: {}", e)
-    };
-}
+
