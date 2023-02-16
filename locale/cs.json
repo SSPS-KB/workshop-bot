@@ -26,6 +26,9 @@
     "chad": {
       "description": "Pošle chad gif",
       "message": "Ty jsi ale chad"
+     },
+    "kitty-review": {
+      "description": "Pošle kitty review!!!!"
     }
   },
   "modules": {
