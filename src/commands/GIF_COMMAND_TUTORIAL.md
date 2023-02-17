@@ -56,7 +56,7 @@ pub(crate) async fn run(ctx: &Context, command: &ApplicationCommandInteraction) 
 ```
 * replace `{command name}` with the name of your command
 * replace `{gif url}` with the gif url
-  * `WARNING` if you use a tenor gif, check if the url format is `media.tenor.com/...`, `tenor.com/...` gifs don't point directly to the file, so they don't work)
+    * `WARNING` if you use a tenor gif, check if the url format is `media.tenor.com/...`, `tenor.com/...` gifs don't point directly to the file, so they don't work)
 * in `src/commands/mod.rs` at the top write this code: `pub(crate) mod {command name};` and again change the `{command name}` to the name of your command
 * then, scroll down and below the `result.push...` blocks add another one in this format:
 ```rust
