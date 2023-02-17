@@ -70,11 +70,11 @@ pub(crate) async fn register_commands(ctx: &Context) {
     );
 
     results.push(
-            Command::create_global_application_command(&ctx.http, |command| {
-                skull::register(command)
-            })
-                .await,
-        );
+        Command::create_global_application_command(&ctx.http, |command| {
+            skull::register(command)
+        })
+            .await,
+    );
 
     match results
         .into_iter()
