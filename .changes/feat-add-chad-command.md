@@ -1,4 +1,4 @@
 ---
 workshop-bot: patch
 ---
-Add a /chad command
+Add a /kitty-review command
