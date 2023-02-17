@@ -34,7 +34,11 @@ pub(crate) async fn run(ctx: &Context, command: &ApplicationCommandInteraction) 
                     message
                         .content(get_message(locale))
                         .embed(|embed| embed
+<<<<<<< HEAD
                             .image("https://media.tenor.com/g1bZgt4-tL4AAAAC/skull.gif")
+=======
+                            .image("https://tenor.com/view/skull-gif-23663947")
+>>>>>>> origin/main
                             .color(Color::from_rgb(110, 110, 110)))
                 })
         })
