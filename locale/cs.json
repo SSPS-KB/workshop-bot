@@ -29,6 +29,10 @@
      },
     "kitty-review": {
       "description": "Pošle kitty review!!!!"
+    },
+    "skull": {
+      "description": "Pošle skull gif",
+      "message": ":skull:"
     }
   },
   "modules": {
