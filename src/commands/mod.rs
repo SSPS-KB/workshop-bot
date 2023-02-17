@@ -7,6 +7,7 @@ pub(crate) mod otakugif;
 pub(crate) mod reaction_role;
 pub(crate) mod workshop;
 pub(crate) mod chad;
+pub(crate) mod skull;
 
 pub(crate) async fn register_commands(ctx: &Context) {
     let guild_id = GuildId::from(1069606131510562889);
@@ -67,6 +68,13 @@ pub(crate) async fn register_commands(ctx: &Context) {
         })
             .await,
     );
+
+    results.push(
+            Command::create_global_application_command(&ctx.http, |command| {
+                skull::register(command)
+            })
+                .await,
+        );
 
     match results
         .into_iter()
