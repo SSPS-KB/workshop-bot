@@ -69,7 +69,7 @@ pub(crate) async fn register_commands(ctx: &Context) {
             .await,
     );
 
-     results.push(
+    results.push(
             Command::create_global_application_command(&ctx.http, |command| {
                 skull::register(command)
             })
