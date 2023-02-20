@@ -24,7 +24,6 @@ fn get_message(locale: String) -> &'static str {
 }
 
 pub(crate) async fn run(ctx: &Context, command: &ApplicationCommandInteraction) {
-    println!("running chad cmd");
     let locale = command.clone().locale;
 
     if let Err(e) = command
