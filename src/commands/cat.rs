@@ -3,6 +3,7 @@ use serenity::model::prelude::interaction::application_command::ApplicationComma
 use serenity::model::prelude::interaction::InteractionResponseType;
 use serenity::prelude::Context;
 use serenity::utils::Color;
+use serde::{Deserialize};
 use tracing::error;
 use rand::seq::SliceRandom;
 use i18n::t;
@@ -17,26 +18,51 @@ pub(crate) fn register(
         .dm_permission(true)
 }
 
-//TODO: no hardcoding keys
-async fn get_link() -> anyhow::Result<String> {
-    let api_key = "AIzaSyBYTniO_HQAop9AAAE5fo7KAPcqq_wIlv4";
-    let term = "kitty%20review";
-    let url = format!("https://tenor.googleapis.com/v2/search?q={}&key={}&limit=50", term, api_key);
+//If there's a more compact way to do this, please let me know
+#[derive(Deserialize, Debug)]
+struct Media {
+    url: String
+}
 
-    let response = reqwest::get(url).await;
+#[derive(Deserialize, Debug)]
+struct MediaFormat {
+    gif: Media
+}
+
+#[derive(Deserialize, Debug)]
+struct TenorResults {
+    media_formats: MediaFormat
+}
+
+#[derive(Deserialize, Debug)]
+struct TenorAPIResponse {
+    results: Vec<TenorResults>
+}
+
+async fn get_link() -> anyhow::Result<String> {
+    let api_key = std::env::var("TENOR_API_KEY").unwrap();
+    let term = "kitty%20review";
+    let url = format!("https://tenor.googleapis.com/v2/search?q={}&key={}&limit=100", term, api_key);
+
+    let response = reqwest::Client::new()
+        .get(url)
+        .header(reqwest::header::USER_AGENT, "SSPS-KB/1.0 workshop bot")
+        .send()
+        .await;
+
     if let Ok(response) = response {
-        let json = response.json::<serde_json::Value>().await;
-        if let Ok(json) = json {
-            if let Some(results) = json.get("results").and_then(|results| results.as_array()) {
-                if let Some(random_result) = results.choose(&mut rand::thread_rng()) {
-                    if let Some(gif) = random_result["media_formats"]["gif"]["url"].as_str() {
-                        return Ok(gif.to_string());
-                    }
+        let json = response.json::<TenorAPIResponse>().await;
+        match json {
+            Ok(data) => {
+                if let Some(random_gif) = data.results.choose(&mut rand::thread_rng()) {
+                    return Ok(random_gif.media_formats.gif.url.to_string());
                 }
+            },
+            Err(e) => {
+                error!("Error while parsing data from Tenor API: {}", e);
             }
-        }
+        };
     }
-    //Why can't I just return a string literal in Ok()?
     let error = "";
     Ok(error.to_string())
 }
