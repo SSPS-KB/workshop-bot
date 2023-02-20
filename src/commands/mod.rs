@@ -3,14 +3,15 @@ use serenity::model::application::command::Command;
 use serenity::model::prelude::GuildId;
 use tracing::{error, info};
 
+pub(crate) mod chad;
 pub(crate) mod otakugif;
 pub(crate) mod reaction_role;
-pub(crate) mod workshop;
-pub(crate) mod chad;
 pub(crate) mod skull;
+pub(crate) mod workshop;
+pub(crate) mod cat;
 
 pub(crate) async fn register_commands(ctx: &Context) {
-    let guild_id = GuildId::from(1069606131510562889);
+    let guild_id = GuildId::from(1075100339918876692);
 
     info!(
         "{:?}",
@@ -63,18 +64,19 @@ pub(crate) async fn register_commands(ctx: &Context) {
     );
 
     results.push(
-        Command::create_global_application_command(&ctx.http, |command| {
-            chad::register(command)
-        })
+        Command::create_global_application_command(&ctx.http, |command| {chad::register(command)})
+        .await,
+    );
+
+    results.push(
+        Command::create_global_application_command(&ctx.http, |command| {skull::register(command)})
             .await,
     );
 
-     results.push(
-            Command::create_global_application_command(&ctx.http, |command| {
-                skull::register(command)
-            })
-                .await,
-        );
+    results.push(
+        Command::create_global_application_command(&ctx.http, |command| {cat::register(command)})
+            .await,
+    );
 
     match results
         .into_iter()

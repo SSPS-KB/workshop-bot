@@ -30,6 +30,9 @@
     "skull": {
       "description": "Pošle skull gif",
       "message": ":skull:"
+    },
+    "cat": {
+      "description": "Pošle kitty review gif"
     }
   },
   "modules": {
