@@ -30,6 +30,10 @@
     "skull": {
       "description": "Pošle skull gif",
       "message": ":skull:"
+    },
+    "kitty": {
+      "description": "Pošle kitty review gif",
+      "message": "Tady máš kitty review :heart_eyes_cat:"
     }
   },
   "modules": {
