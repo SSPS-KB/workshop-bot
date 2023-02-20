@@ -11,7 +11,7 @@ pub(crate) mod workshop;
 pub(crate) mod cat;
 
 pub(crate) async fn register_commands(ctx: &Context) {
-    let guild_id = GuildId::from(1075100339918876692);
+    let guild_id = GuildId::from(1069606131510562889);
 
     info!(
         "{:?}",
