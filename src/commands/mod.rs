@@ -1,13 +1,16 @@
 use serenity::client::Context;
 use serenity::model::application::command::Command;
 use serenity::model::prelude::GuildId;
-use tracing::{error, info};
+use tracing::{error, info, warn};
 
+use crate::state::get_state;
+
+pub(crate) mod chad;
 pub(crate) mod otakugif;
 pub(crate) mod reaction_role;
-pub(crate) mod workshop;
-pub(crate) mod chad;
 pub(crate) mod skull;
+pub(crate) mod workshop;
+pub(crate) mod cat;
 
 pub(crate) async fn register_commands(ctx: &Context) {
     let guild_id = GuildId::from(1069606131510562889);
@@ -63,18 +66,24 @@ pub(crate) async fn register_commands(ctx: &Context) {
     );
 
     results.push(
-        Command::create_global_application_command(&ctx.http, |command| {
-            chad::register(command)
-        })
+        Command::create_global_application_command(&ctx.http, |command| {chad::register(command)})
+        .await,
+    );
+
+    results.push(
+        Command::create_global_application_command(&ctx.http, |command| {skull::register(command)})
             .await,
     );
 
-     results.push(
-            Command::create_global_application_command(&ctx.http, |command| {
-                skull::register(command)
-            })
+    if get_state(ctx).await.config.tenor_api_key.clone().is_some() {
+        //Register commands that use the Tenor API here.
+        results.push(
+            Command::create_global_application_command(&ctx.http, |command| {cat::register(command)})
                 .await,
         );
+    } else {
+        warn!("Missing tenor_api_key, commands like cat that use the Tenor API won't work!");
+    }
 
     match results
         .into_iter()

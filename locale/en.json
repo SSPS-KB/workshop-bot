@@ -30,6 +30,9 @@
     "skull": {
       "description": "Sends a skull gif",
       "message": ":skull:"
+    },
+    "cat": {
+      "description": "Sends a kitty review gif"
     }
   },
   "modules": {
