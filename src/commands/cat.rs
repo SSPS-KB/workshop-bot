@@ -56,7 +56,7 @@ async fn get_link(ctx: &Context) -> Result<String> {
     let json = data.json::<TenorAPIResponse>().await?;
 
     match json.results.choose(&mut rand::thread_rng()) {
-        Some(result) => Ok(result.media_formats.gif.url.clone()),
+        Some(result) => Ok(result.media_formats.gif.url.to_owned()),
         None => Err(anyhow!("No GIFs found"))
     }
 }
