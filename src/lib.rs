@@ -1,3 +1,4 @@
+use crate::commands::command::SlashCommand;
 use crate::commands::register_commands;
 use crate::modules::automove::run_automove;
 use crate::modules::invite::generate_invite;
@@ -36,7 +37,7 @@ impl EventHandler for Bot {
     async fn interaction_create(&self, ctx: Context, interaction: Interaction) {
         match interaction {
             Interaction::ApplicationCommand(command) => match command.data.name.as_str() {
-                "workshop" => commands::workshop::run(&ctx, &command).await,
+                "workshop" => commands::workshop::WorkshopCommand::run(&ctx, &command).await,
                 "kiss" => commands::otakugif::run(&ctx, &command, "kiss").await,
                 "hug" => commands::otakugif::run(&ctx, &command, "hug").await,
                 "punch" => commands::otakugif::run(&ctx, &command, "punch").await,

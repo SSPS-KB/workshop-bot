@@ -1,3 +1,5 @@
+use crate::commands::command::register_guild_slash_command;
+use crate::commands::workshop::WorkshopCommand;
 use serenity::client::Context;
 use serenity::model::application::command::Command;
 use serenity::model::prelude::GuildId;
@@ -5,28 +7,23 @@ use tracing::{error, info, warn};
 
 use crate::state::get_state;
 
+pub(crate) mod cat;
 pub(crate) mod chad;
+pub mod command;
 pub(crate) mod otakugif;
 pub(crate) mod reaction_role;
 pub(crate) mod skull;
 pub(crate) mod workshop;
-pub(crate) mod cat;
 
 pub(crate) async fn register_commands(ctx: &Context) {
     let guild_id = GuildId::from(1069606131510562889);
 
-    info!(
-        "{:?}",
-        guild_id
-            .set_application_commands(&ctx.http, |commands| {
-                /*
-                commands.create_application_command(|command| otakugif::register_kiss(command));
-                commands.create_application_command(|command| otakugif::register_hug(command));
-                */
-                commands
-            })
-            .await
-    );
+    // Unregister guild commands
+    let _ = guild_id
+        .set_application_commands(&ctx.http, |commands| commands)
+        .await;
+
+    register_guild_slash_command(ctx, guild_id, WorkshopCommand).await;
 
     let mut results = Vec::new();
 
@@ -66,19 +63,19 @@ pub(crate) async fn register_commands(ctx: &Context) {
     );
 
     results.push(
-        Command::create_global_application_command(&ctx.http, |command| {chad::register(command)})
-        .await,
+        Command::create_global_application_command(&ctx.http, |command| chad::register(command))
+            .await,
     );
 
     results.push(
-        Command::create_global_application_command(&ctx.http, |command| {skull::register(command)})
+        Command::create_global_application_command(&ctx.http, |command| skull::register(command))
             .await,
     );
 
     if get_state(ctx).await.config.tenor_api_key.clone().is_some() {
         //Register commands that use the Tenor API here.
         results.push(
-            Command::create_global_application_command(&ctx.http, |command| {cat::register(command)})
+            Command::create_global_application_command(&ctx.http, |command| cat::register(command))
                 .await,
         );
     } else {
