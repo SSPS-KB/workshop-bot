@@ -57,7 +57,7 @@ async fn get_link(ctx: &Context) -> Result<String> {
 
     match json.results.choose(&mut rand::thread_rng()) {
         Some(result) => Ok(result.media_formats.gif.url.clone()),
-        None => Err(anyhow!("No GIFs found")),
+        None => Err(anyhow!("No GIFs found"))
     }
 }
 
