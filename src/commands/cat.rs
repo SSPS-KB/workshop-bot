@@ -41,7 +41,10 @@ struct TenorAPIResponse {
 }
 
 async fn get_link(ctx: &Context) -> Result<String> {
-    let api_key = get_state(ctx).await.config.tenor_api_key.expect("Missing tenor_api_key in the config");
+    let api_key = match get_state(ctx).await.config.tenor_api_key {
+        Some(api_key) => api_key,
+        None => return Err(anyhow!("Missing Tenor API key"))
+    };
     let term = "kitty%20review";
     let url = format!("https://tenor.googleapis.com/v2/search?q={term}&key={api_key}&limit=100");
 
@@ -75,7 +78,7 @@ pub(crate) async fn run(ctx: &Context, command: &ApplicationCommandInteraction) 
             response
                 .kind(InteractionResponseType::ChannelMessageWithSource)
                 .interaction_response_data(|message| {
-                    message.embed(|embed| embed.image(result).color(Color::from_rgb(110, 110, 110)))
+                    message.embed(|embed| embed.image(result).color(Color::from_rgb(227, 0, 0)))
                 })
         })
         .await
