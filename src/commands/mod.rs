@@ -76,13 +76,13 @@ pub(crate) async fn register_commands(ctx: &Context) {
     );
 
     if get_state(ctx).await.config.tenor_api_key.clone().is_some() {
-        //Register commands that use the Tenor API here!
+        //Register commands that use the Tenor API here.
         results.push(
             Command::create_global_application_command(&ctx.http, |command| {cat::register(command)})
                 .await,
         );
     } else {
-        warn!("Warning: missing tenor_api_key, commands like cat that use the Tenor API won't work!");
+        warn!("Missing tenor_api_key, commands like cat that use the Tenor API won't work!");
     }
 
     match results
