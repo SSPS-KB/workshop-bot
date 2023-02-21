@@ -5,6 +5,7 @@ use serde::{Deserialize, Serialize};
 pub struct BotConfig {
     #[serde(alias = "discord_token")]
     pub token: Option<String>,
+    pub tenor_api_key: Option<String>,
     #[serde(rename = "workshop_invite_channel")]
     pub invite_channel: Option<u64>,
     pub guilds: HashMap<String, GuildConfig>

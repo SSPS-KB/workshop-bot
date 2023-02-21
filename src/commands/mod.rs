@@ -3,6 +3,8 @@ use serenity::model::application::command::Command;
 use serenity::model::prelude::GuildId;
 use tracing::{error, info};
 
+use crate::state::get_state;
+
 pub(crate) mod chad;
 pub(crate) mod otakugif;
 pub(crate) mod reaction_role;
@@ -73,10 +75,14 @@ pub(crate) async fn register_commands(ctx: &Context) {
             .await,
     );
 
-    results.push(
-        Command::create_global_application_command(&ctx.http, |command| {cat::register(command)})
-            .await,
-    );
+    if get_state(ctx).await.config.tenor_api_key.clone().is_some() {
+        results.push(
+            Command::create_global_application_command(&ctx.http, |command| {cat::register(command)})
+                .await,
+        );
+    } else {
+        error!("Warning: missing tenor_api_key, commands like cat that use the Tenor API won't work!");
+    }
 
     match results
         .into_iter()
