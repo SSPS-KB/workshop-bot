@@ -3,9 +3,8 @@
 # A discord token for the bot to login
 discord_token = 'Your token'
 
-# An API key for the Tenor API for commands like /cat, leave empty if you do not want such commands
-# Uncomment if you want to enable these commands (but provide an API key too)
-#tenor_api_key = 'Your Tenor API key'
+# An API key for the Tenor API for commands like /cat, comment it out if you do not want such commands
+tenor_api_key = 'Your Tenor API key'
 
 # Where the invite should be created (run when app gets created and is logged with the INFO level)
 workshop_invite_channel = 877
