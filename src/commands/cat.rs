@@ -78,7 +78,11 @@ pub(crate) async fn run(ctx: &Context, command: &ApplicationCommandInteraction) 
             response
                 .kind(InteractionResponseType::ChannelMessageWithSource)
                 .interaction_response_data(|message| {
-                    message.embed(|embed| embed.image(result).color(Color::from_rgb(227, 0, 0)))
+                    message.embed(|embed| embed
+                        .image(result)
+                        .color(Color::from_rgb(227, 0, 0))
+                        .footer(|f| f.text("Via Tenor"))
+                    )
                 })
         })
         .await
