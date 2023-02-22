@@ -1,5 +1,14 @@
 # Changelog
 
+## \[0.3.3]
+
+- Add a /cat command that sends a random kitty review gif
+  - [8c2b9ea](https://github.com/SSPS-KB/workshop-bot/commit/8c2b9eaffe837ce5278c9101f4eb7692781e78d6) feat: add /cat command ([#16](https://github.com/SSPS-KB/workshop-bot/pull/16)) on 2023-02-21
+- Add a /chad command
+  - [7e60938](https://github.com/SSPS-KB/workshop-bot/commit/7e6093854f014dde381edc4bee0da84b939e71cc) feat: add chad command on 2023-02-12
+- Add a /skull command
+  - [f094264](https://github.com/SSPS-KB/workshop-bot/commit/f0942644c27e53a19085c2e65b2a34bb927a5f4b) feat: add /skull command ([#11](https://github.com/SSPS-KB/workshop-bot/pull/11)) on 2023-02-17
+
 ## \[0.3.2]
 
 - Fixed deploy CI
