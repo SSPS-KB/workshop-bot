@@ -34,7 +34,7 @@ pub(crate) async fn run(ctx: &Context, command: &ApplicationCommandInteraction) 
                     message
                         .content(get_message(locale))
                         .embed(|embed| embed
-                            .image("https://tenor.com/view/bacoco-cat-cats-fr-fr-ong-ong-gif-25098850")
+                            .image("https://media.tenor.com/KBZGb5WAleAAAAAd/bacoco-cat.gif")
                             .color(Color::from_rgb(110, 110, 110)))
                 })
         })
