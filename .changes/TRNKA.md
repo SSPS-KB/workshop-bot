@@ -1,6 +1,6 @@
 
 ---
-workshopbot: amimir (trnka) command
+workshop-bot: amimir (trnka) command
 ---
 
 New (neues) /amimir command.
