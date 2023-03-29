@@ -11,6 +11,7 @@ pub(crate) mod reaction_role;
 pub(crate) mod skull;
 pub(crate) mod workshop;
 pub(crate) mod cat;
+pub(crate) mod amimir;
 
 pub(crate) async fn register_commands(ctx: &Context) {
     let guild_id = GuildId::from(1069606131510562889);
