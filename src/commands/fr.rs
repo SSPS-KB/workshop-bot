@@ -41,7 +41,7 @@ pub(crate) async fn run(ctx: &Context, command: &ApplicationCommandInteraction) 
         .await
     {
         error!(
-            "There was an error while responding to chad command: {}",
+            "There was an error while responding to fr command: {}",
             e
         )
     };
