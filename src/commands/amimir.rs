@@ -34,7 +34,7 @@ pub(crate) async fn run(ctx: &Context, command: &ApplicationCommandInteraction) 
                     message
                         .content(get_message(locale))
                         .embed(|embed| embed
-                            .image("https://cdn.discordapp.com/attachments/888165880553410610/1090714681062215811/trnka_1.png")
+                            .image("https://imgur.com/a/FfhLuhM")
                             .color(Color::from_rgb(110, 110, 110)))
                 })
         })
