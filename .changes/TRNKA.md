@@ -1,6 +1,6 @@
 
 ---
-"ssps-workshopbot": amimir (trnka) command
+ssps-workshopbot: amimir (trnka) command
 
 ---
 
