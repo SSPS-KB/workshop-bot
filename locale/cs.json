@@ -33,6 +33,10 @@
     },
     "cat": {
       "description": "Pošle kitty review gif"
+    },
+    "fr": {
+      "description": "Pošle fr gif",
+      "message": ":regional_indicator_f: :regional_indicator_r:"
     }
   },
   "modules": {
