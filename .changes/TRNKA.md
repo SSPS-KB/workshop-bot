@@ -1,7 +1,4 @@
-
 ---
-workshop-bot: amimir (trnka) command
+workshop-bot: minor
 ---
-
-New (neues) /amimir command.
-
+very real amimir aka trnka related command
