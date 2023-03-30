@@ -17,7 +17,7 @@ pub(crate) fn register(
 }
 
 fn get_message(locale: String) -> &'static str {
-    match locale.asstr() {
+    match locale.as_str() {
         "cs" => t!("commands.amimir.message", "cs"),
        _ => t!("commands.amimir.message"),
     }
