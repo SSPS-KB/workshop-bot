@@ -10,6 +10,7 @@ pub(crate) mod otakugif;
 pub(crate) mod reaction_role;
 pub(crate) mod skull;
 pub(crate) mod workshop;
+pub(crate) mod fr;
 pub(crate) mod cat;
 
 pub(crate) async fn register_commands(ctx: &Context) {
