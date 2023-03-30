@@ -20,8 +20,12 @@
     "hug": {
       "description": "Send a hug gif"
     },
+
     "slap": {
       "description": "Send a slap gif"
+    },
+    "fr": {
+      "description": ":regional_indicator_f: :regional_indicator_r:"
     },
     "punch": {
       "description": "Send a punch gif"
