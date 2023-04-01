@@ -13,7 +13,7 @@ pub(crate) mod workshop;
 pub(crate) mod cat;
 pub(crate) mod fr;
 pub(crate) mod amimir;
-pub(crate) mod windownt;
+pub(crate) mod windont;
 
 pub(crate) async fn register_commands(ctx: &Context) {
     let guild_id = GuildId::from(1069606131510562889);
