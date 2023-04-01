@@ -46,6 +46,7 @@ impl EventHandler for Bot {
                 "cat" => commands::cat::run(&ctx, &command).await,
                 "amimir" => commands::amimir::run(&ctx, &command).await,
                 "fr" => commands::fr::run(&ctx, &command).await,
+                "windont" => commands::windont::run(&ctx, &command).await,
                 name => warn!("Received a command which is not implemented: {}", name),
             },
             Interaction::MessageComponent(component) => match component.data.custom_id.as_str() {
