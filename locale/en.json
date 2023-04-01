@@ -17,6 +17,9 @@
     "amimir": {
       "description": "Trnka"
     },
+     "windownt": {
+      "description": "windownt skips"
+    },
     "hug": {
       "description": "Send a hug gif"
     },
