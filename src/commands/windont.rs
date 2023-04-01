@@ -10,16 +10,16 @@ pub(crate) fn register(
     command: &mut CreateApplicationCommand,
 ) -> &mut CreateApplicationCommand {
     command
-        .name("windownt")
-        .description(t!("commands.windownt.description").to_string())
-        .description_localized("cs", t!("commands.windownt.description", "cs"))
+        .name("windont")
+        .description(t!("commands.windont.description").to_string())
+        .description_localized("cs", t!("commands.windont.description", "cs"))
         .dm_permission(true)
 }
 
 fn get_message(locale: String) -> &'static str {
     match locale.as_str() {
-        "cs" => t!("commands.windownt.message", "cs"),
-       _ => t!("commands.windownt.message"),
+        "cs" => t!("commands.windont.message", "cs"),
+       _ => t!("commands.windont.message"),
     }
 }
 
@@ -41,7 +41,7 @@ pub(crate) async fn run(ctx: &Context, command: &ApplicationCommandInteraction) 
         .await
     {
         error!(
-            "There was an error while responding to windownt command: {}",
+            "There was an error while responding to windont command: {}",
             e
         )
     };
