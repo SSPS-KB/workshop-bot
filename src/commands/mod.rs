@@ -54,6 +54,13 @@ pub(crate) async fn register_commands(ctx: &Context) {
                 .await,
         );
     
+     results.push(
+            Command::create_global_application_command(&ctx.http, |command| {
+                windont::register(command)
+            })
+                .await,
+        );
+    
     results.push(
         Command::create_global_application_command(&ctx.http, |command| {
             otakugif::register_hug(command)
