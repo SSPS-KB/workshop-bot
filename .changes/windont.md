@@ -1,4 +1,4 @@
 ---
 workshop-bot: minor
 ---
-Added a windownt command
+Added a windont command
