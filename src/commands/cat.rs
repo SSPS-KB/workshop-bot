@@ -46,7 +46,7 @@ async fn get_link(ctx: &Context) -> Result<String> {
         None => return Err(anyhow!("Missing Tenor API key"))
     };
     let term = "kitty%20review";
-    let url = format!("https://tenor.googleapis.com/v2/search?q={term}&key={api_key}&limit=100");
+    let url = format!("https://tenor.googleapis.com/v2/search?q={term}&key={api_key}&limit=650");
 
     //Code from PR #13
     let response = reqwest::Client::new()
