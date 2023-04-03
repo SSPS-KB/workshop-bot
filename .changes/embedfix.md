@@ -1,5 +1,5 @@
 ---
-workshop-bot: fix
+workshop-bot: patch
 ---
 
 Embed fix
