@@ -1,4 +1,0 @@
----
-workshop-bot: minor
----
-Add a /windont command
