@@ -1,5 +1,20 @@
 # Changelog
 
+## \[0.4.0]
+
+- Add /amimir command
+  - [516f189](https://github.com/SSPS-KB/workshop-bot/commit/516f1895931a105a31a3f2b0927591a0e6a8051b) amimir command ([#20](https://github.com/SSPS-KB/workshop-bot/pull/20)) on 2023-03-30
+  - [2ac93f4](https://github.com/SSPS-KB/workshop-bot/commit/2ac93f448cf66bc774e4b442f34c852953401bbd) Update TRNKA.md ([#21](https://github.com/SSPS-KB/workshop-bot/pull/21)) on 2023-03-30
+  - [d32ca1b](https://github.com/SSPS-KB/workshop-bot/commit/d32ca1b21820f432cede0cf3a3a99a9913bffc7e) Windownt command ([#24](https://github.com/SSPS-KB/workshop-bot/pull/24)) on 2023-04-01
+  - [cf9527e](https://github.com/SSPS-KB/workshop-bot/commit/cf9527ec8d2adcf115284a2b992389bcf084ad74) fix: changes files on 2023-04-03
+- Add /fr command
+  - [6cefde1](https://github.com/SSPS-KB/workshop-bot/commit/6cefde1815a88d81eeb68cd4354f24314e3463e1) added /fr comand ([#23](https://github.com/SSPS-KB/workshop-bot/pull/23)) on 2023-03-31
+  - [d32ca1b](https://github.com/SSPS-KB/workshop-bot/commit/d32ca1b21820f432cede0cf3a3a99a9913bffc7e) Windownt command ([#24](https://github.com/SSPS-KB/workshop-bot/pull/24)) on 2023-04-01
+  - [cf9527e](https://github.com/SSPS-KB/workshop-bot/commit/cf9527ec8d2adcf115284a2b992389bcf084ad74) fix: changes files on 2023-04-03
+- Add a /windont command
+  - [d32ca1b](https://github.com/SSPS-KB/workshop-bot/commit/d32ca1b21820f432cede0cf3a3a99a9913bffc7e) Windownt command ([#24](https://github.com/SSPS-KB/workshop-bot/pull/24)) on 2023-04-01
+  - [cf9527e](https://github.com/SSPS-KB/workshop-bot/commit/cf9527ec8d2adcf115284a2b992389bcf084ad74) fix: changes files on 2023-04-03
+
 ## \[0.3.3]
 
 - Add a /cat command that sends a random kitty review gif
