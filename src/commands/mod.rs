@@ -56,7 +56,7 @@ pub(crate) async fn register_commands(ctx: &Context) {
 
      results.push(
             Command::create_global_application_command(&ctx.http, |command| {
-                amimir::register(command)
+                fr::register(command)
             })
                 .await,
         );
