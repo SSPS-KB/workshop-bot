@@ -18,7 +18,8 @@
       "description": ":regional_indicator_f: :regional_indicator_r:"
     },
     "amimir": {
-      "description": "trnka"
+      "description": "trnka",
+      "message": "Trnka amimir"
     },
     "windont": {
       "description": "windont skips"
