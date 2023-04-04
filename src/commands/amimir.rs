@@ -34,7 +34,7 @@ pub(crate) async fn run(ctx: &Context, command: &ApplicationCommandInteraction) 
                     message
                         .content(get_message(locale))
                         .embed(|embed| embed
-                            .image("https://i.imgur.io/acBE6kL_d.webp")
+                            .image("https://i.imgur.com/rykrP1s.jpeg")
                             .color(Color::from_rgb(110, 110, 110)))
                 })
         })
