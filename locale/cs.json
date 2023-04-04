@@ -15,7 +15,8 @@
       "description": "Polib někoho posláním gifu"
     },
     "fr": {
-      "description": ":regional_indicator_f: :regional_indicator_r:"
+      "description": "fr",
+      "message": ":regional_indicator_f: :regional_indicator_r:"
     },
     "amimir": {
       "description": "trnka",
