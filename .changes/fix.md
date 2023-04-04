@@ -1,5 +1,5 @@
 ---
-workshop-bot: minor
+workshop-bot: patch
 ---
 
 Bigger Trnka image <3
