@@ -2,4 +2,4 @@
 workshop-bot: patch
 ---
 
-added /fr command
+Register /fr command on start
