@@ -1,5 +1,13 @@
 # Changelog
 
+## \[0.4.1]
+
+- Embed fix
+  - [aeac2bd](https://github.com/SSPS-KB/workshop-bot/commit/aeac2bdc9a0bee91c3935da6ac870f35746f1360) amimir + windont embed fix ([#26](https://github.com/SSPS-KB/workshop-bot/pull/26)) on 2023-04-03
+  - [e2ad293](https://github.com/SSPS-KB/workshop-bot/commit/e2ad293969e8a2bc8b333c09f9df4ef52f1d3595) fix: fix change type doesnt exist on 2023-04-03
+- Added missing i18n entries for amimir and windont commands
+  - [2b92911](https://github.com/SSPS-KB/workshop-bot/commit/2b92911d3e4d37d16124e29ce08f20da01c3d001) fix ([#28](https://github.com/SSPS-KB/workshop-bot/pull/28)) on 2023-04-04
+
 ## \[0.4.0]
 
 - Add /amimir command
