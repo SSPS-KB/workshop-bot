@@ -30,7 +30,8 @@
       "description": "Send a slap gif"
     },
     "fr": {
-      "description": ":regional_indicator_f: :regional_indicator_r:"
+      "description": "Sends a fr gif",
+      "message": ":regional_indicator_f: :regional_indicator_r:"
     },
     "punch": {
       "description": "Send a punch gif"
