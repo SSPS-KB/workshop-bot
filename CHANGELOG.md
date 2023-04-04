@@ -1,5 +1,16 @@
 # Changelog
 
+## \[0.4.2]
+
+- Register /fr command on start
+  - [6cefde1](https://github.com/SSPS-KB/workshop-bot/commit/6cefde1815a88d81eeb68cd4354f24314e3463e1) added /fr comand ([#23](https://github.com/SSPS-KB/workshop-bot/pull/23)) on 2023-03-31
+  - [d32ca1b](https://github.com/SSPS-KB/workshop-bot/commit/d32ca1b21820f432cede0cf3a3a99a9913bffc7e) Windownt command ([#24](https://github.com/SSPS-KB/workshop-bot/pull/24)) on 2023-04-01
+  - [cf9527e](https://github.com/SSPS-KB/workshop-bot/commit/cf9527ec8d2adcf115284a2b992389bcf084ad74) fix: changes files on 2023-04-03
+  - [cc20837](https://github.com/SSPS-KB/workshop-bot/commit/cc2083777b9e0428036d65d072942246e923b99d) publish new versions ([#22](https://github.com/SSPS-KB/workshop-bot/pull/22)) on 2023-04-03
+  - [4d8e171](https://github.com/SSPS-KB/workshop-bot/commit/4d8e17114c33703f88f8f0763d8e5176566ffd3f) fix: Register /fr command on start ([#31](https://github.com/SSPS-KB/workshop-bot/pull/31)) on 2023-04-04
+- Bigger Trnka image <3
+  - [4c56d41](https://github.com/SSPS-KB/workshop-bot/commit/4c56d41a28b9141a71b469788207df3b5b559a55) trnka ([#29](https://github.com/SSPS-KB/workshop-bot/pull/29)) on 2023-04-04
+
 ## \[0.4.1]
 
 - Embed fix
