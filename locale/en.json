@@ -15,10 +15,12 @@
       "description": "Send a kiss gif"
     },
     "amimir": {
-      "description": "Trnka"
+      "description": "Trnka",
+      "message": "Trnka amimir"
     },
      "windont": {
-      "description": "windont skips"
+      "description": "windont skips",
+      "message": "Windont moment"
     },
     "hug": {
       "description": "Send a hug gif"
