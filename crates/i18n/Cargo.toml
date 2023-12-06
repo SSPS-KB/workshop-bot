@@ -10,5 +10,5 @@ proc-macro = true
 [dependencies]
 serde_json = "1.0.92"
 anyhow = "1.0.75"
-quote = "1.0.23"
+quote = "1.0.33"
 proc-macro2 = "1.0"
