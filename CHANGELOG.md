@@ -1,5 +1,10 @@
 # Changelog
 
+## \[0.4.3]
+
+- Fixed & resized the image for the windont command.
+  - [2c7eb1b](https://github.com/SSPS-KB/workshop-bot/commit/2c7eb1bb98db92f949398d1085010eda605d251f) Fix  - windont ([#32](https://github.com/SSPS-KB/workshop-bot/pull/32)) on 2023-04-04
+
 ## \[0.4.2]
 
 - Register /fr command on start
